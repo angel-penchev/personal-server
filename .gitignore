@@ -1,2 +1,6 @@
 .env
-certbot
+config/certbot/*
+config/axigen/*
+!config/axigen/run
+config/axigen/run/*
+!config/axigen/run/axigen.cfg

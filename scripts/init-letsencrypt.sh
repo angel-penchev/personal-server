@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=("penchev.dev")
+domains=("penchev.dev","www.penchev.dev","mail.penchev.dev","www.mail.penchev.dev","admin.penchev.dev","www.admin.penchev.dev")
 email="angel.penchev.tsb@gmail.com"
 rsa_key_size=4096
 config_path="./config/certbot"
