@@ -5,11 +5,11 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=($DOMAIN_NAMES)
-email="$DOMAIN_EMAIL"
+domains=("penchev.dev")
+email="angel.penchev.tsb@gmail.com"
 rsa_key_size=4096
 config_path="./config/certbot"
-staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits
+staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
 if [ -d "$config_path" ]; then
   read -p "Existing config found for $domains. Continue and replace existing certificate? (y/N) " decision
