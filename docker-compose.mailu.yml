@@ -1,0 +1,115 @@
+version: "3.7"
+
+services:
+
+  # External dependencies
+  redis:
+    container_name: "redis"
+    image: redis:alpine
+    restart: always
+    volumes:
+      - "redis:/data"
+    
+  # Core services
+  front:
+    container_name: "front"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}nginx:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    logging:
+      driver: json-file
+    ports:
+      - "207.154.227.165:80:80"
+      - "::1:80:80"
+      - "207.154.227.165:443:443"
+      - "::1:443:443"
+      - "207.154.227.165:25:25"
+      - "::1:25:25"
+      - "207.154.227.165:465:465"
+      - "::1:465:465"
+      - "207.154.227.165:587:587"
+      - "::1:587:587"
+      - "207.154.227.165:110:110"
+      - "::1:110:110"
+      - "207.154.227.165:995:995"
+      - "::1:995:995"
+      - "207.154.227.165:143:143"
+      - "::1:143:143"
+      - "207.154.227.165:993:993"
+      - "::1:993:993"
+    volumes:
+      - "certs:/certs"
+
+
+  admin:
+    container_name: "admin"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}admin:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "data:/data"
+      - "dkim:/dkim"
+    depends_on:
+      - redis
+
+  imap:
+    container_name: "imap"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}dovecot:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "mail:/mail"
+      - "/root/personal-server/overrides/dovecot:/overrides:ro"
+    depends_on:
+      - front
+
+  smtp:
+    container_name: "smtp"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}postfix:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "mailqueue:/queue"
+      - "/root/personal-server/overrides/postfix:/overrides:ro"
+    depends_on:
+      - front
+
+  antispam:
+    container_name: "antispam"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}rspamd:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "filter:/var/lib/rspamd"
+      - "dkim:/dkim:ro"
+      - "/root/personal-server/overrides/rspamd:/etc/rspamd/override.d:ro"
+    depends_on:
+      - front
+
+  webmail:
+    container_name: "webmail"
+    image: ${DOCKER_ORG:-mailu}/${DOCKER_PREFIX:-}roundcube:${MAILU_VERSION:-1.8}
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "webmail:/data"
+    depends_on:
+      - imap
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.203.0/24
+
+volumes:
+  redis:
+  certs:
+  data:
+  dkim:
+  mail:
+  filter:
+  mailqueue:
+  webmail:
