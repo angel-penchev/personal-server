@@ -1,48 +1,122 @@
-version: "3"
+version: "3.7"
 
 services:
-    client:
-      container_name: client
-      build:
-        context: ./client
-      volumes:
-        - ./client:/app
-        - /app/node_modules
-      ports:
-        - 3000:3000
-      environment:
-        - CHOKIDAR_USEPOLLING=true
+  client:
+    container_name: "client"
+    build:
+      context: ./client
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
-    axigen:
-      image: axigen/axigen
-      env_file: .env
-      volumes:
-        - ./config/axigen:/var/opt/axigen
-      ports:
-        - 465:465
-        - 993:993
-        - 995:995
-        - 7000:7000
-        - 8080:8080
-        - 9000:9000
+  redis:
+    container_name: "redis"
+    image: redis:alpine
+    restart: always
+    volumes:
+      - "redis:/data"
 
-    nginx:
-      image: nginx:mainline
-      restart: unless-stopped
-      volumes:
-        - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
-        - ./config/certbot/conf:/etc/letsencrypt
-        - ./config/certbot/www:/var/www/certbot
-      depends_on:
-        - client
-      ports:
-        - 80:80
-        - 443:443
+  front:
+    container_name: "front"
+    image: mailu/nginx:1.8
+    restart: always
+    env_file: mailu.env
+    logging:
+      driver: json-file
+    ports:
+      - "80:80"
+      - "443:443"
+      - "25:25"
+      - "465:465"
+      - "587:587"
+      - "110:110"
+      - "995:995"
+      - "143:143"
+      - "993:993"
+    volumes:
+      - "./config/certs:/certs"
+      - "./config/nginx.conf:/etc/nginx/nginx.conf:ro"
+    depends_on:
+      - client
+      - admin
+      - antispam
+      - webmail
 
-    certbot:
-      image: certbot/certbot
-      restart: unless-stopped
-      volumes:
-        - ./config/certbot/conf:/etc/letsencrypt
-        - ./config/certbot/www:/var/www/certbot
-      entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  resolver:
+    image: mailu/unbound:1.8
+    env_file: mailu.env
+    restart: always
+    networks:
+      default:
+        ipv4_address: 192.168.203.254
+
+  admin:
+    container_name: "admin"
+    image: mailu/admin:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "admin-data:/data"
+      - "admin-dkim:/dkim"
+
+  imap:
+    container_name: "imap"
+    image: mailu/dovecot:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "imap-mail:/mail"
+  
+  smtp:
+    container_name: "smtp"
+    image: mailu/postfix:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "smtp-mailqueue:/queue"
+  
+  antispam:
+    container_name: "antispam"
+    image: mailu/rspamd:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "antispam-filter:/var/lib/rspamd"
+
+  webmail:
+    container_name: "webmail"
+    image: mailu/roundcube:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "webmail:/data"
+    depends_on:
+      - imap
+
+  fetchmail:
+    image: mailu/fetchmail:1.8
+    restart: always
+    env_file: mailu.env
+    depends_on:
+      - resolver
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.203.0/24
+
+volumes:
+  redis:
+  admin-data:
+  admin-dkim:
+  imap-mail:
+  smtp-mailqueue:
+  antispam-filter:
+  webmail:
