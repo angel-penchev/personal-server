@@ -47,6 +47,7 @@ services:
       - webmail
 
   resolver:
+    container_name: "resolver"
     image: mailu/unbound:1.8
     env_file: mailu.env
     restart: always
@@ -78,6 +79,8 @@ services:
     env_file: mailu.env
     volumes:
       - "smtp-mailqueue:/queue"
+    dns:
+      - 192.168.203.254
   
   antispam:
     container_name: "antispam"
@@ -86,6 +89,9 @@ services:
     env_file: mailu.env
     volumes:
       - "antispam-filter:/var/lib/rspamd"
+      - "antispam-dkim:/dkim"
+    dns:
+      - 192.168.203.254
 
   webmail:
     container_name: "webmail"
@@ -97,12 +103,23 @@ services:
     depends_on:
       - imap
 
+  webdav:
+    container_name: "webdav"
+    image: mailu/radicale:1.8
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - "webdav-data:/data"
+
   fetchmail:
+    container_name: "fetchmail"
     image: mailu/fetchmail:1.8
     restart: always
     env_file: mailu.env
     depends_on:
       - resolver
+    dns:
+      - 192.168.203.254
 
 networks:
   default:
@@ -119,4 +136,6 @@ volumes:
   imap-mail:
   smtp-mailqueue:
   antispam-filter:
+  antispam-dkim:
   webmail:
+  webdav-data:
