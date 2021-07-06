@@ -1,4 +1,5 @@
 import React from 'react';
+import { SmoothProvider } from 'react-smooth-scrolling';
 import './App.css';
 import Awards from './sections/Awards';
 import Contact from './sections/Contact';
@@ -12,25 +13,27 @@ import Start from './sections/Start';
 
 function App() {
   return (
-    <div className="App">
-      <nav className="app-nav">
-        <Nav></Nav>
-      </nav>
-      <header className="app-header">
-        <Start></Start>
-      </header>
-      <main className="app-main">
-        <Skills></Skills>
-        <Projects></Projects>
-        <Experience></Experience>
-        <Education></Education>
-        <Awards></Awards>
-        <Contact></Contact>
-      </main>
-      <footer className="app-footer">
-        <Footer></Footer>
-      </footer>
-    </div>
+    <SmoothProvider skew={false} ease={0}>
+      <div className="App">
+        <nav className="app-nav">
+          <Nav></Nav>
+        </nav>
+        <header className="app-header">
+          <Start></Start>
+        </header>
+        <main className="app-main">
+          <Skills></Skills>
+          <Projects></Projects>
+          <Experience></Experience>
+          <Education></Education>
+          <Awards></Awards>
+          <Contact></Contact>
+        </main>
+        <footer className="app-footer">
+          <Footer></Footer>
+        </footer>
+      </div>
+    </SmoothProvider>
   );
 }
 
