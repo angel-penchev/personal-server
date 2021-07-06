@@ -5,7 +5,7 @@ import Contact from './sections/Contact';
 import Education from './sections/Education';
 import Experience from './sections/Experience';
 import Footer from './sections/Footer';
-import Header from './sections/Header';
+import Nav from './sections/Nav';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import Start from './sections/Start';
@@ -13,11 +13,13 @@ import Start from './sections/Start';
 function App() {
   return (
     <div className="App">
+      <nav className="app-nav">
+        <Nav></Nav>
+      </nav>
       <header className="app-header">
-        <Header></Header>
+        <Start></Start>
       </header>
       <main className="app-main">
-        <Start></Start>
         <Skills></Skills>
         <Projects></Projects>
         <Experience></Experience>

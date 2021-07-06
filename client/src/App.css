@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #AF1C38;
+  --secondary-color: #991A38;
+  --light-color: #E5918C;
+  --animation-duration: 500ms;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar:hover {
+  width: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color); 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color); 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: fixed;
+  height: 100px;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.nav .home {
+  color: #000;
+  font-family: 'Helvetica Now Display';
+  margin-left: 5vw;
+  cursor: pointer;
+  
+  -webkit-transition: color 300ms linear;
+  -moz-transition: color 300ms linear;
+  -o-transition: color 300ms linear;
+  -ms-transition: color 300ms linear;
+  transition: color 300ms linear;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav .home:hover {
+  color: var(--primary-color);
+}
+
+.nav .home .primary {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.nav .home .secondary {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.nav .links {
+  margin-left: auto;
+  margin-right: 5vw;
+}
+
+.nav .links .link {
+  display: inline-block;
+	position: relative;
+	padding: 0.2em 0;
+  overflow: hidden;
+
+  font-size: 22px;
+  margin: 0 5px;
+  cursor: pointer;
+
+  -webkit-transition: color 300ms linear;
+  -moz-transition: color 300ms linear;
+  -o-transition: color 300ms linear;
+  -ms-transition: color 300ms linear;
+  transition: color 300ms linear;
+}
+
+.nav .links .link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: var(--primary-color);
+  opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+	opacity: 1;
+	transform: translate3d(-100%, 0, 0);
+}
+
+
+.nav .links .link:hover {
+  color: var(--primary-color);
+}
+
+.nav .links .link:hover::after,
+.nav .links .link:focus::after {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+}
+
+.start {
+  background-color: aquamarine;
 }
