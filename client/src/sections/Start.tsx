@@ -1,5 +1,6 @@
 import React from 'react';
 import portrait from '../assets/portrait.png';
+import Typewriter from 'typewriter-effect';
 
 const Start = () => {
     return (
@@ -7,11 +8,18 @@ const Start = () => {
             <div className="left-container">
                 <div className="caption">
                     <span className="primary">
-                        Hi, my name is Angel Penchev<br />
-                        and I'm a software developer
+                        <Typewriter
+                            onInit={
+                                (typewriter) => {
+                                    typewriter
+                                    .typeString('Hi, my name is <span class="red">Angel Penchev</span><br />and I\'m a <span class="red">software developer</span>')
+                                    .start()
+                                }
+                            }
+                        />
                     </span>
                     <span className="secondary">
-                        
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptates quo inventore. Sunt numquam sed odit sint autem saepe dicta, aut nam incidunt optio voluptas, laborum molestias adipisci. Excepturi unde sint delectus quod autem debitis officia adipisci quae facere dolore?
                     </span>
                 </div>
             </div>

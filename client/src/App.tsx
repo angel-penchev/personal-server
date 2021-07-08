@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SmoothProvider } from 'react-smooth-scrolling';
 import './App.css';
 import Awards from './sections/Awards';
@@ -11,29 +11,33 @@ import Projects from './sections/Projects';
 import Skills from './sections/Skills';
 import Start from './sections/Start';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    document.title = "Angel Penchev | Software Developer"
+  }, [])
+
   return (
-    <SmoothProvider skew={false} ease={0}>
-      <div className="App">
+    <div className="App">
         <nav className="app-nav">
           <Nav></Nav>
         </nav>
-        <header className="app-header">
-          <Start></Start>
-        </header>
-        <main className="app-main">
-          <Skills></Skills>
-          <Projects></Projects>
-          <Experience></Experience>
-          <Education></Education>
-          <Awards></Awards>
-          <Contact></Contact>
-        </main>
-        <footer className="app-footer">
-          <Footer></Footer>
-        </footer>
+        <SmoothProvider skew={true} ease={0}>
+          <header className="app-header">
+            <Start></Start>
+          </header>
+          <main className="app-main">
+            <Skills></Skills>
+            <Projects></Projects>
+            <Experience></Experience>
+            <Education></Education>
+            <Awards></Awards>
+            <Contact></Contact>
+          </main>
+          <footer className="app-footer">
+            <Footer></Footer>
+          </footer>
+        </SmoothProvider>
       </div>
-    </SmoothProvider>
   );
 }
 
