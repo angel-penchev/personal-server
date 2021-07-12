@@ -16,22 +16,20 @@ const Start = () => {
   return (
     <div className="start section">
       <div className="left-container">
-        <div className="caption">
-          <span className="primary">
-            <Typewriter
-              onInit={
-                (typewriter) => {
-                  typewriter
-                      .typeString(primaryText)
-                      .start();
-                }
+        <span className="primary">
+          <Typewriter
+            onInit={
+              (typewriter) => {
+                typewriter
+                    .typeString(primaryText)
+                    .start();
               }
-            />
-          </span>
-          <span className="secondary">
-            {secondaryText}
-          </span>
-        </div>
+            }
+          />
+        </span>
+        <span className="secondary">
+          {secondaryText}
+        </span>
       </div>
       <div className="right-container">
         <img
