@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { SmoothProvider } from 'react-smooth-scrolling';
+import React, {useEffect} from 'react';
+import {SmoothProvider} from 'react-smooth-scrolling';
 import './App.css';
 import Awards from './sections/Awards/Awards';
 import Contact from './sections/Contact/Contact';
@@ -13,8 +13,8 @@ import Start from './sections/Start/Start';
 
 const App = () => {
   useEffect(() => {
-    document.title = "Angel Penchev | Software Developer"
-  }, [])
+    document.title = 'Angel Penchev | Software Developer';
+  }, []);
 
   return (
     <div className="App">
@@ -37,6 +37,6 @@ const App = () => {
       </SmoothProvider>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,12 +1,12 @@
-import React from 'react'
-import './Skills.css'
+import React from 'react';
+import './Skills.css';
 
 const Skills = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
 
-export default Skills
+    </div>
+  );
+};
+
+export default Skills;

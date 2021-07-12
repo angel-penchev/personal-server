@@ -1,12 +1,12 @@
-import React from 'react'
-import './Awards.css'
+import React from 'react';
+import './Awards.css';
 
 const Awards = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
 
-export default Awards
+    </div>
+  );
+};
+
+export default Awards;

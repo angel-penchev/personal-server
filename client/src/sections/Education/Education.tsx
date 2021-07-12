@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import './Education.css';
 
 const Education = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
 
-export default Education
+    </div>
+  );
+};
+
+export default Education;

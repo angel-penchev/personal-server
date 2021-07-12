@@ -1,12 +1,12 @@
-import React from 'react'
-import './Projects.css'
+import React from 'react';
+import './Projects.css';
 
 const Projects = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return (
+    <div>
 
-export default Projects
+    </div>
+  );
+};
+
+export default Projects;

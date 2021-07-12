@@ -6,7 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "cypress open",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"**/*.{js,ts,jsx,tsx}\"",
+    "lint:fix": "eslint --fix \"**/*.{js,ts,jsx,tsx}\""
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",
@@ -47,6 +49,11 @@
     "@cypress/react": "^5.9.1",
     "@cypress/webpack-dev-server": "^1.4.0",
     "@types/react-scroll": "^1.8.2",
-    "cypress": "^7.7.0"
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "cypress": "^7.7.0",
+    "eslint": "^7.30.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.24.0"
   }
 }
