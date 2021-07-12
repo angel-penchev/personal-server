@@ -1,6 +1,7 @@
 import React from 'react'
+import 'Footer.css'
 
-const Experience = () => {
+const Footer = () => {
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Experience = () => {
     )
 }
 
-export default Experience
+export default Footer

@@ -1,6 +1,7 @@
 import React from 'react'
+import './Awards.css'
 
-const Footer = () => {
+const Awards = () => {
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Awards

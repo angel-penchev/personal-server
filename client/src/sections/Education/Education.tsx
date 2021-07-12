@@ -1,6 +1,7 @@
 import React from 'react'
+import './Education.css';
 
-const Projects = () => {
+const Education = () => {
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Projects = () => {
     )
 }
 
-export default Projects
+export default Education

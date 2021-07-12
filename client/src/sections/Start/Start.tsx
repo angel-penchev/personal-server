@@ -1,6 +1,10 @@
 import React from 'react';
-import portrait from '../assets/portrait.png';
+import './Start.css';
+import portrait from '../../assets/portrait.png';
 import Typewriter from 'typewriter-effect';
+
+const primaryText = 'Hi, my name is <span class="red bold">Angel Penchev</span><br />and I\'m a <span class="red bold">software developer</span>';
+const secondaryText = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptates quo inventore. Sunt numquam sed odit sint autem saepe dicta, aut nam incidunt optio voluptas, laborum molestias adipisci. Excepturi unde sint delectus quod autem debitis officia adipisci quae facere dolore?';
 
 const Start = () => {
     return (
@@ -12,14 +16,14 @@ const Start = () => {
                             onInit={
                                 (typewriter) => {
                                     typewriter
-                                    .typeString('Hi, my name is <span class="red">Angel Penchev</span><br />and I\'m a <span class="red">software developer</span>')
+                                    .typeString(primaryText)
                                     .start()
                                 }
                             }
                         />
                     </span>
                     <span className="secondary">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum voluptates quo inventore. Sunt numquam sed odit sint autem saepe dicta, aut nam incidunt optio voluptas, laborum molestias adipisci. Excepturi unde sint delectus quod autem debitis officia adipisci quae facere dolore?
+                        {secondaryText}
                     </span>
                 </div>
             </div>

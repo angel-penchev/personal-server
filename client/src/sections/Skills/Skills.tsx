@@ -1,6 +1,7 @@
 import React from 'react'
+import './Skills.css'
 
-const Education = () => {
+const Skills = () => {
     return (
         <div>
             
@@ -8,4 +9,4 @@ const Education = () => {
     )
 }
 
-export default Education
+export default Skills

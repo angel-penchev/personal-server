@@ -1,0 +1,51 @@
+.start {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.start .left-container {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+
+.start .left-container .caption {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 20;
+  bottom: -55%;
+  align-self: flex-center;
+  height: fit-content;
+  overflow: visible;
+  margin-left: 20%;
+}
+
+.start .left-container .caption .primary {
+  font-size: 52px;
+}
+
+.start .left-container .caption .secondary {
+  width: 70%;
+  font-size: 22px;
+}
+
+.start .right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-column: 2 / -1;
+  grid-row: 1;
+}
+
+.start .right-container .portrait {
+  display: block;
+  z-index: 10;
+  object-fit: contain;
+  width: 100%;
+  height: 90vh;
+  align-self: flex-center;
+  filter: drop-shadow(0 0 0.25rem var(--light-color));
+}
