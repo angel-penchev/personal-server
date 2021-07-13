@@ -8,7 +8,7 @@ interface Props {
   scrollDuration?: number
 }
 
-const links = ['Start', 'Projects', 'Contact'];
+const links = ['Start', 'Contact'];
 
 const Nav: React.FC<Props> = (props: Props) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
