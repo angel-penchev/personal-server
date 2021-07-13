@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Start.css';
 import portrait from './Assets/portrait.png';
 import Typewriter from 'typewriter-effect';
@@ -13,6 +13,11 @@ optio voluptas, laborum molestias adipisci. Excepturi unde sint delectus quod
 autem debitis officia adipisci quae facere dolore?`;
 
 const Start = () => {
+  useEffect(() => {
+    const imagesToBePreloaded = [portrait];
+    imagesToBePreloaded.forEach((image) => new Image().src = image);
+  });
+
   return (
     <div className="start section">
       <div className="left-container">
