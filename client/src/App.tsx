@@ -21,7 +21,7 @@ const App = () => {
       <nav className="app-nav">
         <Nav></Nav>
       </nav>
-      <SmoothProvider skew={true} ease={0}>
+      <SmoothProvider skew={false} ease={0}>
         <main className="app-main">
           <Start></Start>
           <Skills></Skills>
