@@ -28,12 +28,12 @@
 }
 
 .nav .home .primary {
-  font-size: clamp(12px, 4vw, 30px);
+  font-size: clamp(18px, 3.7vw, 29px);
   font-weight: 500;
 }
 
 .nav .home .secondary {
-  font-size: clamp(12px, 2.4vw, 18px);
+  font-size: clamp(11px, 2.3vw, 18px);
   font-weight: 300;
 }
 

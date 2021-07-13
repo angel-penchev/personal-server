@@ -21,6 +21,7 @@ const Start = () => {
             onInit={
               (typewriter) => {
                 typewriter
+                    .pauseFor(250)
                     .typeString(primaryText)
                     .start();
               }
