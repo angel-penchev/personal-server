@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SmoothProvider} from 'react-smooth-scrolling';
 import './App.css';
 import Awards from './sections/Awards/Awards';
@@ -12,10 +12,6 @@ import Skills from './sections/Skills/Skills';
 import Start from './sections/Start/Start';
 
 const App = () => {
-  useEffect(() => {
-    document.title = 'Angel Penchev | Software Developer';
-  }, []);
-
   return (
     <div className="App">
       <nav className="app-nav">
