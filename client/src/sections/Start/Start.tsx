@@ -25,6 +25,9 @@ const Start = () => {
                     .start();
               }
             }
+            options={{
+              delay: 75,
+            }}
           />
         </span>
         <span className="secondary">
