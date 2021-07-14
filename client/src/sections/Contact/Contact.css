@@ -19,21 +19,24 @@
 }
 
 .contact .form {
+  display: block;
   width: 100%;
   height: 100%;
-  background-color: gainsboro;
+  background-color: #FFFFFF;
   grid-column: 12 / -2;
   grid-row: 5 / 15;
   z-index: 30;
+  filter: drop-shadow(0 0 0.25rem var(--primary-color));
 }
 
 .contact .information {
   width: 100%;
   height: 100%;
-  background-color: gray;
+  background-color: #FFFFFF;
   grid-column: 2 / 8;
   grid-row: 15 / -2;
   z-index: 20;
+  filter: drop-shadow(0 0 0.125rem var(--primary-color));
 }
 
 @media only screen and (max-width: 768px) {
