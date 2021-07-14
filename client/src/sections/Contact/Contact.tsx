@@ -13,7 +13,9 @@ const Contact = () => {
     <div className="contact section">
       <div className="map">
         <GoogleMap
-          bootstrapURLKeys={{key: String(process.env.GOOGLE_MAPS_API_KEY)}}
+          bootstrapURLKeys={{
+            key: String(process.env.REACT_APP_GOOGLE_MAPS_API_KEY),
+          }}
           defaultCenter={mapCenter}
           defaultZoom={mapZoom}
           options={{
