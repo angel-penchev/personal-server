@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: local('Helvetica Now Display Regular'), local('Helvetica-Now-Display-Regular'),
+      url('./assets/fonts/HelveticaNowDisplay-Regular/HelveticaNowDisplay-Regular.woff2') format('woff2'),
+      url('./assets/fonts/HelveticaNowDisplay-Regular/HelveticaNowDisplay-Regular.woff') format('woff'),
+      url('./assets/fonts/HelveticaNowDisplay-Regular/HelveticaNowDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans Regular'), local('Noto-Sans-Regular'),
+      url('./assets/fonts/NotoSans/NotoSans.woff2') format('woff2'),
+      url('./assets/fonts/NotoSans/NotoSans.woff') format('woff'),
+      url('./assets/fonts/NotoSans/NotoSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --primary-color: #af1c38;
   --secondary-color: #991a38;
@@ -38,7 +58,7 @@ body {
   background-color: #c8c8c8;
   display: flex;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
