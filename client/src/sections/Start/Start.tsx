@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './Start.css';
-import portrait from '../../assets/portrait.png';
+import portrait from '../../assets/img/portrait.png';
 import Typewriter from 'typewriter-effect';
 
 const primaryText = `

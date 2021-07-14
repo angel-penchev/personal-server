@@ -1,7 +1,7 @@
 import React from 'react';
 import './Contact.css';
 import GoogleMap from 'google-map-react';
-import MapTheme from '../../assets/map-theme.json';
+import MapTheme from '../../assets/misc/map-theme.json';
 import MapMarker from '../../components/MapMarker/MapMarker';
 
 const mapCenter = {lat: 42.6978634, lng: 23.3221789};
