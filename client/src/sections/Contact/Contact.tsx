@@ -1,5 +1,5 @@
 import React from 'react';
-import LocationMap from '../../components/LocationMap/LocationMap';
+import LocationMap from '@components/LocationMap/LocationMap';
 import './Contact.css';
 
 const mapCenter = {lat: 44.7629166, lng: 21.5161946};

@@ -1,8 +1,8 @@
 import React from 'react';
 import './LocationMap.css';
 import GoogleMap from 'google-map-react';
-import MapTheme from '../../assets/misc/map-theme.json';
-import MapMarker from '../MapMarker/MapMarker';
+import MapTheme from '@assets/misc/map-theme.json';
+import MapMarker from '@components/MapMarker/MapMarker';
 
 interface Props {
     mapCenter: {lat: number, lng: number};
