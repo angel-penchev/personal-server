@@ -1,6 +1,5 @@
 .marker {
     position: absolute;
-    width: 2.5vw;
-    height: 18px;
-    transform: translate(-50%, -3.75vw);
+    width: clamp(30px, 2.5vw, 60px);
+    transform: translate(-50%, -100%);
 }
