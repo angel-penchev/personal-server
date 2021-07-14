@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import {SmoothProvider} from 'react-smooth-scrolling';
 import './App.css';
+import Awards from './sections/Awards/Awards';
+import Contact from './sections/Contact/Contact';
+import Education from './sections/Education/Education';
+import Experience from './sections/Experience/Experience';
+import Footer from './sections/Footer/Footer';
+import Nav from './sections/Nav/Nav';
+import Projects from './sections/Projects/Projects';
+import Skills from './sections/Skills/Skills';
+import Start from './sections/Start/Start';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="app-nav">
+        <Nav></Nav>
+      </nav>
+      <SmoothProvider skew={false} ease={0}>
+        <main className="app-main">
+          <Start></Start>
+          <Skills></Skills>
+          <Projects></Projects>
+          <Experience></Experience>
+          <Education></Education>
+          <Awards></Awards>
+          <Contact></Contact>
+        </main>
+        <footer className="app-footer">
+          <Footer></Footer>
+        </footer>
+      </SmoothProvider>
     </div>
   );
-}
+};
 
 export default App;
