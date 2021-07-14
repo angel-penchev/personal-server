@@ -2,9 +2,9 @@ import React from 'react';
 import LocationMap from '@components/LocationMap/LocationMap';
 import './Contact.css';
 
-const mapCenter = {lat: 44.7629166, lng: 21.5161946};
+const mapCenter = {lat: 45.356271, lng: 30.462244};
 const mapPin = {lat: 42.6978634, lng: 23.3221789};
-const mapZoom = 6;
+const mapZoom = 4;
 
 const Contact = () => {
   return (
