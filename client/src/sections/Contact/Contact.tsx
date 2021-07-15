@@ -2,6 +2,8 @@ import React from 'react';
 import LocationMap from '@components/LocationMap/LocationMap';
 import './Contact.css';
 import ContactForm from '@src/components/ContactForm/ContactForm';
+import ContactInformation
+  from '@src/components/ContactInformation/ContactInformation';
 
 const mapCenter = {lat: 45.356271, lng: 30.462244};
 const mapPin = {lat: 42.6978634, lng: 23.3221789};
@@ -27,7 +29,9 @@ const Contact = () => {
       <div className="form">
         <ContactForm />
       </div>
-      <div className="information"></div>
+      <div className="information">
+        <ContactInformation />
+      </div>
     </div>
   );
 };
