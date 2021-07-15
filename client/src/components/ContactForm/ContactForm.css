@@ -7,7 +7,21 @@
 
 .group {
   position: relative;
+  display: inline-block;
+  width: 100%;
   margin-bottom: 25px;
+}
+
+.left {
+    margin-right: 1%;
+}
+
+.right {
+    margin-left: 1%;
+}
+
+.group.half {
+    width: 49%;
 }
 
 .input-text {
@@ -24,13 +38,13 @@
   transition: 0.2s ease;
 }
 
-input:focus {
+.input-text:focus {
   outline: none;
   opacity: 1;
   border-bottom: 1px solid var(--primary-color);
 }
 
-label {
+.input-label {
   color: var(--light-color);
   font-size: 13px;
   font-weight: normal;
@@ -43,9 +57,8 @@ label {
   -webkit-transition: 0.2s ease all;
 }
 
-/* active state */
-input:focus ~ label,
-input:valid ~ label {
+.input-text:focus ~ .input-label,
+.input-text:valid ~ .input-label {
   top: -10px;
   font-size: 12px;
   color: var(--primary-color);
@@ -62,14 +75,12 @@ input:valid ~ label {
   opacity: 0.5;
 }
 
-/* active state */
-input:focus ~ .highlight {
+.input-text:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;
 }
 
-/* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
     background: var(--primary-color);
@@ -98,13 +109,13 @@ input:focus ~ .highlight {
   }
 }
 
-a.send-btn {
+.send-btn {
   float: right;
   color: var(--secondary-color);
   transition: 0.2s ease;
 }
 
-a.send-btn:hover {
+.send-btn:hover {
   color: var(--primary-color);
   cursor: pointer;
 }
