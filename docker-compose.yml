@@ -134,6 +134,14 @@ services:
       - resolver
     dns:
       - 192.168.203.254
+        
+  bitwarden:
+    container_name: "bitwarden"
+    image: bitwardenrs/server
+    restart: always
+    volumes:
+      - bitwarden-data:/data
+
 
 networks:
   default:
@@ -153,3 +161,4 @@ volumes:
   antispam-dkim:
   webmail:
   webdav-data:
+  bitwarden-data:
